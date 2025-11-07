@@ -1,9 +1,103 @@
-#chaosBtn {
+:root{
+  --bg1: #d8c6f0;
+  --bg2: #f3e8ff;
+  --accent: #9c71ce;
+  --accent-dark: #7e4fb3;
+  --text: #3a1f5d;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  text-align: center;
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.stage{
+  width: 100%;
+  max-width: 980px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(58,31,93,0.12);
   position: relative;
 }
 
-#chaosBtn.run {
-  position: absolute;
-  top: calc(10% + (80% * random()));
-  left: calc(10% + (80% * random()));
+h1,h2,h3,p{margin:8px 0}
+
+#content {
+  display: none; /* tetap hidden sampai jawaban benar */
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  text-align: left;
 }
+
+#content.show {
+  display: block;
+  opacity: 1;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  margin: 18px 0 8px 0;
+  min-height:66px;
+  position: relative;
+}
+
+button{
+  padding: 14px 22px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+  box-shadow: 0 6px 18px rgba(120,80,170,0.15);
+  user-select: none;
+}
+button:active{ transform: scale(0.98) }
+
+button.secondary{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(58,31,93,0.08);
+}
+
+#trickButton{
+  position: absolute;
+  left: 50%;
+  top: 50px; /* jarak dari heading */
+  transform: translateX(-50%);
+  z-index: 30;
+  touch-action: manipulation;
+}
+
+canvas#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+video{
+  width: 100%;
+  max-width: 720px;
+  border-radius: 12px;
+  display:block;
+  margin: 16px auto 8px auto;
+}
+
+.hint{ font-size:14px; opacity:0.9; margin-top:6px;}

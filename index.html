@@ -6,111 +6,7 @@
   <title>Atun's Day 💜</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg1: #d8c6f0;
-      --bg2: #f3e8ff;
-      --accent: #9c71ce;
-      --accent-dark: #7e4fb3;
-      --text: #3a1f5d;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text);
-      text-align: center;
-      overflow: hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 24px;
-    }
-
-    .stage{
-      width: 100%;
-      max-width: 980px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 8px 30px rgba(58,31,93,0.12);
-      position: relative;
-    }
-
-    h1,h2,h3,p{margin:8px 0}
-    #content {
-      display: none;
-      padding: 20px;
-      animation: fadeIn 600ms ease forwards;
-      text-align: left;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* tombol */
-    .controls{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:16px;
-      margin: 18px 0 8px 0;
-      min-height:66px;
-      position:relative;
-    }
-
-    button{
-      padding: 14px 22px;
-      font-size: 18px;
-      border: none;
-      border-radius: 12px;
-      background-color: var(--accent);
-      color: white;
-      cursor: pointer;
-      transition: transform 0.18s ease, background-color 0.18s ease;
-      box-shadow: 0 6px 18px rgba(120,80,170,0.15);
-      user-select: none;
-    }
-    button:active{ transform: scale(0.98) }
-
-    button.secondary{
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(58,31,93,0.08);
-    }
-
-    /* trick button styling */
-    #trickButton{
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 0;
-      transition: left 0.22s ease, top 0.22s ease, transform 0.12s ease;
-      z-index: 30;
-      touch-action: manipulation;
-    }
-
-    /* confetti canvas full-screen */
-    canvas#confettiCanvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* responsive video */
-    video{ width: 100%; max-width: 720px; border-radius: 12px; display:block; margin: 16px auto 8px auto; }
-
-    /* small helper text */
-    .hint{ font-size:14px; opacity:0.9; margin-top:6px;}
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <canvas id="confettiCanvas"></canvas>
@@ -118,7 +14,7 @@
   <div class="stage">
     <h2 style="text-align:center;margin-top:4px">Ready? 🎉</h2>
 
-    <div class="controls" aria-hidden="false">
+    <div class="controls">
       <button id="trickButton" aria-label="Jangan dipencet">jangan di pencet</button>
     </div>
 
@@ -138,14 +34,14 @@
       <h2 style="text-align:center">Semangat belajar Matematika & Saham-nyaa 💰💹</h2>
 
       <video id="birthdayVideo" controls>
-        <source src="" type="video/mp4">
+        <source src="video/birthday.mp4" type="video/mp4">
         Your browser does not support video tag.
       </video>
     </div>
+
     <p class="hint" style="text-align:center">(Soal kecil dulu, baru boleh masuk — ini jebakan bestie)</p>
   </div>
 
-  <!-- confetti lib, then our script file -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
