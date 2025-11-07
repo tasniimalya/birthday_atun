@@ -3,40 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat 8 November Atun 💜 !!!</title>
+  <title>Atun's Day 💜</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #d8c6f0;
-      color: #4b3269;
+      background: linear-gradient(135deg, #d8c6f0, #f3e8ff);
+      color: #3a1f5d;
       text-align: center;
-      padding: 50px;
+      height: 100vh;
+      overflow: hidden;
     }
-
     #content {
       display: none;
+      padding: 20px;
+      animation: fadeIn 1s ease forwards;
     }
-
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
     button {
-      background-color: #a483d6;
+      padding: 16px 30px;
+      font-size: 20px;
       border: none;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-size: 18px;
+      border-radius: 12px;
+      background-color: #9c71ce;
       color: white;
       cursor: pointer;
-      transition: 0.3s;
+      transition: transform 0.3s, background-color 0.3s;
     }
-
     button:hover {
-      background-color: #8f6bc0;
+      background-color: #7e4fb3;
+      transform: scale(1.1);
+    }
+    #trickButton {
+      position: relative;
+      animation: moveButton 4s infinite;
+    }
+    @keyframes moveButton {
+      0% { top: 0; left: 0; }
+      25% { top: 0; left: 20px; }
+      50% { top: 20px; left: 0; }
+      75% { top: 0; left: -20px; }
+      100% { top: 0; left: 0; }
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
 
-  <h2>Sugeng Ambalwarsa, Atun 🎉</h2>
-  <button onclick="mathQuestion()">Jangan dipencet</button>
+  <canvas id="confettiCanvas"></canvas>
+
+  <h2>Ready? 🎉</h2>
+  <button id="trickButton">jangan di pencet</button>
 
   <div id="content">
     <h1>Eaaaaaaaa selamat hari atuun!!! 🎂</h1>
@@ -53,19 +79,40 @@
     <p>terus-terusan di temenin kamu. Masak ntar mau beli cilok di mesir juga kamu yg ngomong ke amu2nya? kan aku nanti g bisa mandiri 😋</p>
     <h3>You're on the right path just like me, tumbuh di tempat masing-masing, ya 💗</h3>
     <h2>Semangat belajar Matematika & Saham-nyaa 💰💹</h2>
-    <!-- VIDEO NANTI TARO SINI -->
+    <video id="birthdayVideo" controls width="70%" style="margin-top:20px; border-radius:12px;">
+      <source src="" type="video/mp4">
+      Your browser does not support video tag.
+    </video>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    function mathQuestion() {
+    const btn = document.getElementById("trickButton");
+    const content = document.getElementById("content");
+    const canvas = document.getElementById("confettiCanvas");
+    const confetti = canvas.confetti = window.confetti.create(canvas, { resize: true });
+
+    btn.addEventListener("click", () => {
       const answer = prompt("Hitung: 20 + 20 x 3 + 2 x 3 = ?");
-      if(answer == 86) {
-        alert("Pintar Betull mahasiswa UNIBA! 😎");
-        document.getElementById("content").style.display = "block";
+      if(answer == "86") {
+        btn.style.display = "none";
+        content.style.display = "block";
+        confetti({
+          particleCount: 500,
+          spread: 360,
+          origin: { y: 0.6 }
+        });
+        const audio = new Audio("https://freesound.org/data/previews/523/523315_10319117-lq.mp3");
+        audio.play();
       } else {
-        alert("Salah woyy! tanya ibad sana 👀");
+        alert("SALAH woyy! Tanya Ibad sana 👀");
+        confetti({
+          particleCount: 100,
+          spread: 120,
+          origin: { y: 0.6 }
+        });
       }
-    }
+    });
   </script>
 
 </body>
