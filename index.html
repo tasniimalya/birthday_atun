@@ -1,120 +1,152 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Atun's Day 💜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root{
+      --bg1: #d8c6f0;
+      --bg2: #f3e8ff;
+      --accent: #9c71ce;
+      --accent-dark: #7e4fb3;
+      --text: #3a1f5d;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #d8c6f0, #f3e8ff);
-      color: #3a1f5d;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
       text-align: center;
-      height: 100vh;
       overflow: hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px;
     }
+
+    .stage{
+      width: 100%;
+      max-width: 980px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 30px rgba(58,31,93,0.12);
+      position: relative;
+    }
+
+    h1,h2,h3,p{margin:8px 0}
     #content {
       display: none;
       padding: 20px;
-      animation: fadeIn 1s ease forwards;
+      animation: fadeIn 600ms ease forwards;
+      text-align: left;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
+      from { opacity: 0; transform: scale(0.98); }
       to { opacity: 1; transform: scale(1); }
     }
-    button {
-      padding: 16px 30px;
-      font-size: 20px;
+
+    /* tombol */
+    .controls{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      margin: 18px 0 8px 0;
+      min-height:66px;
+      position:relative;
+    }
+
+    button{
+      padding: 14px 22px;
+      font-size: 18px;
       border: none;
       border-radius: 12px;
-      background-color: #9c71ce;
+      background-color: var(--accent);
       color: white;
       cursor: pointer;
-      transition: transform 0.3s, background-color 0.3s;
+      transition: transform 0.18s ease, background-color 0.18s ease;
+      box-shadow: 0 6px 18px rgba(120,80,170,0.15);
+      user-select: none;
     }
-    button:hover {
-      background-color: #7e4fb3;
-      transform: scale(1.1);
+    button:active{ transform: scale(0.98) }
+
+    button.secondary{
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(58,31,93,0.08);
     }
-    #trickButton {
-      position: relative;
-      animation: moveButton 4s infinite;
-    }
-    @keyframes moveButton {
-      0% { top: 0; left: 0; }
-      25% { top: 0; left: 20px; }
-      50% { top: 20px; left: 0; }
-      75% { top: 0; left: -20px; }
-      100% { top: 0; left: 0; }
-    }
-    canvas {
+
+    /* trick button styling */
+    #trickButton{
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       top: 0;
-      left: 0;
-      pointer-events: none;
+      transition: left 0.22s ease, top 0.22s ease, transform 0.12s ease;
+      z-index: 30;
+      touch-action: manipulation;
     }
+
+    /* confetti canvas full-screen */
+    canvas#confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* responsive video */
+    video{ width: 100%; max-width: 720px; border-radius: 12px; display:block; margin: 16px auto 8px auto; }
+
+    /* small helper text */
+    .hint{ font-size:14px; opacity:0.9; margin-top:6px;}
   </style>
 </head>
 <body>
-
   <canvas id="confettiCanvas"></canvas>
 
-  <h2>Ready? 🎉</h2>
-  <button id="trickButton">jangan di pencet</button>
+  <div class="stage">
+    <h2 style="text-align:center;margin-top:4px">Ready? 🎉</h2>
 
-  <div id="content">
-    <h1>Eaaaaaaaa selamat hari atuun!!! 🎂</h1>
-    <h2>Kepala dua banget ey, tuanyaa 😗✌️</h2>
-    <h3>Ini aku buat web2an yg masih nyontek 💅 tapi oke lah yaaa (tepuk tangan nya manaa 🕺)</h3>
-    <p>Makasih ya tuun mau direpotin sama anak bungsu inii, tanpa kamu sadar kamu udah 
-        bantuin banyak perkembangan sosial-ku (ehehek)</p>
-    <p>jadi lebih terbuka ke orang-orang. jadi tau ternyata ada temen yg bisa
-        diajak ngomong yg bukan cuman basa-basi biar keliatan punya temen.</p>
-    <p>pokoknya makasi atuun udah bisa dipercaya 😘 (awas aja bocor mulut comelmu ku catok👹)</p>
-    <h3>semangat kuliah di Indonesia😁💕</h3>
-    <p>Plot twist tahun ini emang 🙂. Ternyata ga seburuk itu ya, Tun? Emang dasar, manusia
-        cuman bisa mikir se-enaknya. Aku juga g baik klo </p>
-    <p>terus-terusan di temenin kamu. Masak ntar mau beli cilok di mesir juga kamu yg ngomong ke amu2nya? kan aku nanti g bisa mandiri 😋</p>
-    <h3>You're on the right path just like me, tumbuh di tempat masing-masing, ya 💗</h3>
-    <h2>Semangat belajar Matematika & Saham-nyaa 💰💹</h2>
-    <video id="birthdayVideo" controls width="70%" style="margin-top:20px; border-radius:12px;">
-      <source src="" type="video/mp4">
-      Your browser does not support video tag.
-    </video>
+    <div class="controls" aria-hidden="false">
+      <button id="trickButton" aria-label="Jangan dipencet">jangan di pencet</button>
+    </div>
+
+    <div id="content" role="region" aria-live="polite">
+      <h1 style="text-align:center">Eaaaaaaaa selamat hari atuun!!! 🎂</h1>
+      <h2 style="text-align:center">Kepala dua banget ey, tuanyaa 😗✌️</h2>
+
+      <h3>Ini aku buat web2an yg masih nyontek 💅 tapi oke lah yaaa (tepuk tangan nya manaa 🕺)</h3>
+      <p>Makasih ya tuun mau direpotin sama anak bungsu inii, tanpa kamu sadar kamu udah bantuin banyak perkembangan sosial-ku (ehehek)</p>
+      <p>jadi lebih terbuka ke orang-orang. jadi tau ternyata ada temen yg bisa
+         diajak ngomong yg bukan cuman basa-basi biar keliatan punya temen.</p>
+      <p>pokoknya makasi atuun udah bisa dipercaya 😘 (awas aja bocor mulut comelmu ku catok👹)</p>
+      <h3>semangat kuliah di Indonesia😁💕</h3>
+      <p>Plot twist tahun ini emang 🙂. Ternyata ga seburuk itu ya, Tun?</p>
+      <p>Masak ntar mau beli cilok di mesir juga kamu yg ngomong ke amu2nya? kan aku nanti g bisa mandiri 😋</p>
+      <h3>You're on the right path just like me, tumbuh di tempat masing-masing, ya 💗</h3>
+      <h2 style="text-align:center">Semangat belajar Matematika & Saham-nyaa 💰💹</h2>
+
+      <video id="birthdayVideo" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support video tag.
+      </video>
+    </div>
+    <p class="hint" style="text-align:center">(Soal kecil dulu, baru boleh masuk — ini jebakan bestie)</p>
   </div>
 
+  <!-- confetti lib, then our script file -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    const btn = document.getElementById("trickButton");
-    const content = document.getElementById("content");
-    const canvas = document.getElementById("confettiCanvas");
-    const confetti = canvas.confetti = window.confetti.create(canvas, { resize: true });
-
-    btn.addEventListener("click", () => {
-      const answer = prompt("Hitung: 20 + 20 x 3 + 2 x 3 = ?");
-      if(answer == "86") {
-        btn.style.display = "none";
-        content.style.display = "block";
-        confetti({
-          particleCount: 500,
-          spread: 360,
-          origin: { y: 0.6 }
-        });
-        const audio = new Audio("https://freesound.org/data/previews/523/523315_10319117-lq.mp3");
-        audio.play();
-      } else {
-        alert("SALAH woyy! Tanya Ibad sana 👀");
-        confetti({
-          particleCount: 100,
-          spread: 120,
-          origin: { y: 0.6 }
-        });
-      }
-    });
-  </script>
-    
+  <script src="script.js"></script>
 </body>
-    <script src="script.js"></script>
 </html>
