@@ -64,7 +64,7 @@
       content.scrollIntoView({behavior: 'smooth', block: 'center'});
     } else {
       tryCount++;
-      alert("SALAH 😏 Coba lagi!");
+      alert("SALAH woyy! Tanya ibad sana 😛");
       boom(90, 110, 0.6);
       playSound('https://freesound.org/data/previews/523/523315_10319117-lq.mp3');
       runAway(btn);
