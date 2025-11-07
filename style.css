@@ -1,0 +1,9 @@
+#chaosBtn {
+  position: relative;
+}
+
+#chaosBtn.run {
+  position: absolute;
+  top: calc(10% + (80% * random()));
+  left: calc(10% + (80% * random()));
+}
