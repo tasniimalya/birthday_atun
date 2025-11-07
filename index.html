@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat 8 November Atun 💜 !!!</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d8c6f0;
+      color: #4b3269;
+      text-align: center;
+      padding: 50px;
+    }
+
+    #content {
+      display: none;
+    }
+
+    button {
+      background-color: #a483d6;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #8f6bc0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Sugeng Ambalwarsa, Atun 🎉</h2>
+  <button onclick="mathQuestion()">Jangan dipencet</button>
+
+  <div id="content">
+    <h1>Eaaaaaaaa selamat hari atuun!!! 🎂</h1>
+    <h2>Kepala dua banget ey, tuanyaa 😗✌️</h2>
+    <h3>Ini aku buat web2an yg masih nyontek 💅 tapi oke lah yaaa (tepuk tangan nya manaa 🕺)</h3>
+    <p>Makasih ya tuun mau direpotin sama anak bungsu inii, tanpa kamu sadar kamu udah 
+        bantuin banyak perkembangan sosial-ku (ehehek)</p>
+    <p>jadi lebih terbuka ke orang-orang. jadi tau ternyata ada temen yg bisa
+        diajak ngomong yg bukan cuman basa-basi biar keliatan punya temen.</p>
+    <p>pokoknya makasi atuun udah bisa dipercaya 😘 (awas aja bocor mulut comelmu ku catok👹)</p>
+    <h3>semangat kuliah di Indonesia😁💕</h3>
+    <p>Plot twist tahun ini emang 🙂. Ternyata ga seburuk itu ya, Tun? Emang dasar, manusia
+        cuman bisa mikir se-enaknya. Aku juga g baik klo </p>
+    <p>terus-terusan di temenin kamu. Masak ntar mau beli cilok di mesir juga kamu yg ngomong ke amu2nya? kan aku nanti g bisa mandiri 😋</p>
+    <h3>You're on the right path just like me, tumbuh di tempat masing-masing, ya 💗</h3>
+    <h2>Semangat belajar Matematika & Saham-nyaa 💰💹</h2>
+    <!-- VIDEO NANTI TARO SINI -->
+  </div>
+
+  <script>
+    function mathQuestion() {
+      const answer = prompt("Hitung: 20 + 20 x 3 + 2 x 3 = ?");
+      if(answer == 86) {
+        alert("Pintar Betull mahasiswa UNIBA! 😎");
+        document.getElementById("content").style.display = "block";
+      } else {
+        alert("Salah woyy! tanya ibad sana 👀");
+      }
+    }
+  </script>
+
+</body>
+</html>
